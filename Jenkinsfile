@@ -1,15 +1,15 @@
 pipeline {
-  agent any
+    agent any
 
-  tools {
-    maven"mvn"
-  }
-
-  stages {
-    stage('Build') {
-      steps {
-    	bat "mvn clean compile"
-      }
+    tools {
+        maven "mvn"
     }
-  }
+
+    stages {
+        stage('Build') {
+            steps {
+    	          sh 'mvn -B -DskipTests clean package'
+            }
+        }
+    }
 }
